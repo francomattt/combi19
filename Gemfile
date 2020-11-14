@@ -56,3 +56,5 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 # Gema para agregar Bootstrap-sass
 gem 'bootstrap', '~> 5.0.0.alpha2'
 gem 'jquery-rails'
+# Gema para agregar Hirb
+gem 'hirb', '~> 0.7.3'
