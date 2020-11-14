@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration_plate: MyString
+  cap: 1
+  model: 1
+  bus_type: MyString
+  user_id: 1
+
+two:
+  registration_plate: MyString
+  cap: 1
+  model: 1
+  bus_type: MyString
+  user_id: 1

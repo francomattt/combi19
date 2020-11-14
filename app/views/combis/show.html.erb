@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Registration plate:</strong>
+  <%= @combi.registration_plate %>
+</p>
+
+<p>
+  <strong>Cap:</strong>
+  <%= @combi.cap %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @combi.model %>
+</p>
+
+<p>
+  <strong>Bus type:</strong>
+  <%= @combi.bus_type %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @combi.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_combi_path(@combi) %> |
+<%= link_to 'Back', combis_path %>

@@ -1,0 +1,56 @@
+
+<%= form_with(model: combi, local: true) do |form| %>
+  <% if combi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(combi.errors.count, "error") %> No se pudo la combi:</h2>
+
+      <ul>
+        <% combi.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :registration_plate, 'Dominio: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :registration_plate, required: true %>
+  </div>
+ </div>
+ 
+  <div class="row">
+   <div class="col-3">
+     <%= form.label :cap, 'Cantidad de asientos: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.number_field :cap, required: true %>
+  </div>
+ </div>
+ 
+  <div class="row">
+   <div class="col-3">
+     <%= form.label :model, 'Modelo: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.number_field :model, required: true %>
+  </div>
+ </div>
+
+
+<div class="row">
+   <div class="col-3">
+     <%= form.label :user_id, 'Chofer: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.collection_select :user_id, User.choferes.availables, :id, :formatted_name,{},class: 'form-control' %>
+  </div>
+ </div>
+ 
+ 
+  <div class="actions">
+    <%= form.submit 'Guardar datos', class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>

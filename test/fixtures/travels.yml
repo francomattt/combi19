@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  travel_day: 2020-11-14
+  travel_hour: 2020-11-14 19:42:14
+  combi_id: 1
+  way_id: 1
+  state_id: 1
+
+two:
+  travel_day: 2020-11-14
+  travel_hour: 2020-11-14 19:42:14
+  combi_id: 1
+  way_id: 1
+  state_id: 1
