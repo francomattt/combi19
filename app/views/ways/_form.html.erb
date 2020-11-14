@@ -1,0 +1,48 @@
+<%= form_with(model: way, local: true) do |form| %>
+  <% if way.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(way.errors.count, "error") %> No se pudo guardar la ruta:</h2>
+
+      <ul>
+        <% way.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :start, 'Ciudad de origen: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.collection_select :start, Site.availables, :id, :name,{},class: 'form-control' %>
+  </div>
+ </div>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :end_way, 'Ciudad de destino: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.collection_select :end_way, Site.availables, :id, :name,{},class: 'form-control' %>
+  </div>
+ </div>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :description, 'Detalle del camino (ej: ruta): *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :description, required: true %>
+  </div>
+ </div>
+ 
+ 
+  <div class="actions">
+    <%= form.submit 'Guardar datos', class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>
+
+
+

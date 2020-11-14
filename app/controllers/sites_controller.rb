@@ -20,7 +20,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to @site, notice: 'El destino se cargó correctamente.' }
+        format.html { redirect_to sites_path, notice: 'El destino se cargó correctamente.' }
       else
         format.html { render :new ,  alert: 'El destino ya existe.'}
       end
@@ -30,7 +30,7 @@ class SitesController < ApplicationController
    def update
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to @site, notice: 'El destino se actualizó correctamente.' }
+        format.html { redirect_to sites_path, notice: 'El destino se actualizó correctamente.' }
       else
         format.html { render :edit }
       end

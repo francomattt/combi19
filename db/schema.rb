@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_170311) do
+ActiveRecord::Schema.define(version: 2020_11_14_190012) do
 
   create_table "credit_cards", force: :cascade do |t|
     t.string "owner"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 2020_11_14_170311) do
     t.index ["dni"], name: "index_users_on_dni", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "ways", force: :cascade do |t|
+    t.string "description"
+    t.integer "start"
+    t.integer "end_way"
+    t.date "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
