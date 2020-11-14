@@ -1,7 +1,7 @@
 <%= form_with(model: site, local: true) do |form| %>
   <% if site.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
+      <h2><%= pluralize(site.errors.count, "error") %> No se pudo guardar este destino:</h2>
 
       <ul>
         <% site.errors.full_messages.each do |message| %>
@@ -11,12 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :name, 'Localidad: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :name, required: true %>
   </div>
+ </div>
+ 
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar datos', class: 'btn btn-primary btn-sm' %>
   </div>
 <% end %>

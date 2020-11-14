@@ -1,6 +1,13 @@
-<h1>Editing Site</h1>
+<div class="container-fluid">
+	<h3>Cargar nuevo destino</h3>
 
-<%= render 'form', site: @site %>
+	<%= render 'form', site: @site %>
+	<div class="container">
+	   <br>
+	</div>
+	<%= link_to 'Ver destino', @site, class: 'btn btn-primary btn-sm' %> | <%= link_to 'Volver', sites_path,class: 'btn btn-default btn-sm' %>
+</div>
 
-<%= link_to 'Show', @site %> |
-<%= link_to 'Back', sites_path %>
+
+
+

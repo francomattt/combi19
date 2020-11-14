@@ -22,7 +22,7 @@ class SitesController < ApplicationController
       if @site.save
         format.html { redirect_to @site, notice: 'El destino se cargó correctamente.' }
       else
-        format.html { render :new }
+        format.html { render :new ,  alert: 'El destino ya existe.'}
       end
     end
   end
@@ -37,8 +37,9 @@ class SitesController < ApplicationController
     end
   end
 
-  def destroy
-    @site.deleted_at= Date.today
+  def destroy 
+    @site.deleted_at=Date.today
+    @site.save
     respond_to do |format|
       format.html { redirect_to sites_url, notice: 'El destino se eliminó correctamente..' }
     end
