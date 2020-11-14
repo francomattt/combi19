@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_142850) do
+ActiveRecord::Schema.define(version: 2020_11_14_170311) do
 
   create_table "credit_cards", force: :cascade do |t|
     t.string "owner"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_11_14_142850) do
     t.date "expiration_date"
     t.integer "security_number"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string "name"
+    t.date "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
