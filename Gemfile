@@ -58,3 +58,5 @@ gem 'bootstrap', '~> 5.0.0.alpha2'
 gem 'jquery-rails'
 # Gema para agregar Hirb
 gem 'hirb', '~> 0.7.3'
+# Gema para agregar Pundit
+gem 'pundit', '~> 2.1'
