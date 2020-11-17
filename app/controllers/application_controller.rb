@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     
     end
 
+    def pundit_user
+        current_user
+    end
+
 end
