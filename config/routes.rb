@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'sites/destroy/:id', to: 'sites#destroy', as: 'destroy_site' 
   get 'ways/destroy/:id', to: 'ways#destroy', as: 'destroy_way' 
   get 'combis/destroy/:id', to: 'combis#destroy', as: 'destroy_combi'
+  get 'travels/destroy/:id', to: 'travels#destroy', as: 'destroy_travel'
 end
