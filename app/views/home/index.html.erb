@@ -4,5 +4,16 @@
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <p>Ir a Combis:</p>
+      <%= link_to "Combis",combis_path, class: 'btn btn-primary' %>
+      <p>Ir a Sitios:</p>
+      <%= link_to "Sitios",sites_path, class: 'btn btn-primary' %>
+      <p>Ir a Viajes:</p>
+      <%= link_to "Viajes",travels_path, class: 'btn btn-primary' %>
+    <% end %>  
+  <% end %>
+
 
 </div>
