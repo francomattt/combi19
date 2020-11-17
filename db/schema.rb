@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_210125) do
     t.date "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "hora"
   end
 
   create_table "users", force: :cascade do |t|
