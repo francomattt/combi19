@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :combis
   resources :sites
   resources :ways
+  resources :drivers
   devise_for :users
   root 'home#index'
   get 'home/about'
