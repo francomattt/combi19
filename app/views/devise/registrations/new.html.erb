@@ -4,45 +4,45 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :name, "Nombre *" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.label :last_name, "Apellido *" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, "Correo electrónico *" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :birth_day %><br />
-    <%= f.date_field :birth_date, autofocus: true, autocomplete: "birth_date" %>
+    <%= f.label :birth_day, "Fecha de nacimiento *" %><br />
+    <%= f.date_field :birth_date, autofocus: true, autocomplete: "birth_date", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :dni %><br />
-    <%= f.number_field :dni, autofocus: true, autocomplete: "dni" %>
+    <%= f.label :dni, "Dni *" %><br />
+    <%= f.number_field :dni, autofocus: true, autocomplete: "dni", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, "Contraseña *" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> Caracteres como mínimo)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, "Confirmar contraseña *" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Registrarme" %>
   </div>
 <% end %>
 

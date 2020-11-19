@@ -22,7 +22,10 @@
         <td><%= driver.last_name %></td>
         <td><%= driver.email %></td>
         <td><%= driver.dni %></td>
-        <td><%= driver.birth_date%></td>
+        <td><%= driver.birth_date.strftime("%d-%m-%Y")%></td>
+        <td><%= link_to 'Detalles', show_driver_path(driver.id) , class: 'btn btn-light btn-sm'%></td>
+        <td><%= link_to 'Editar', edit_driver_path(driver.id), class: 'btn btn-light btn-sm' %></td>
+        <td><%= link_to 'Eliminar', destroy_driver_path(driver.id), data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

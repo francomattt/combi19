@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get 'travels/destroy/:id', to: 'travels#destroy', as: 'destroy_travel'
   get 'drivers/index', to: 'drivers#index'
   get 'insumos/destroy/:id', to: 'insumos#destroy', as: 'destroy_insumo'
+  get 'drivers/show/:id', to: 'drivers#show', as: 'show_driver'
+  get 'drivers/destroy/:id', to: 'drivers#destroy', as: 'destroy_driver'
 end

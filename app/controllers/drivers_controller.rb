@@ -1,11 +1,15 @@
 class DriversController < ApplicationController
 
+    before_action :authenticate_user!
+
     def index
         @drivers= User.where(role: "driver")
     end
-    def show
 
+    def show
+      @driver= User.find(params[:id])
     end
+
     def edit
      @driver= User.find(params[:id])
     end
@@ -25,7 +29,7 @@ class DriversController < ApplicationController
     def update
         @driver = User.find(params[:id])
         if @driver.update(driver_params)
-            redirect_to driver_path
+            redirect_to drivers_path
         else 
             render :edit
         end
@@ -33,7 +37,7 @@ class DriversController < ApplicationController
     def destroy
         @driver= User.find(params[:id])
         @driver.destroy
-        redirect_to driver_path
+        redirect_to drivers_path
 
     end
     private
