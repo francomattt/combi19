@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @insumo.tipo %>
+</p>
+
+<p>
+  <strong>Cant:</strong>
+  <%= @insumo.cant %>
+</p>
+
+<%= link_to 'Editar', edit_insumo_path(@insumo) %> |
+<%= link_to 'Volver', insumos_path %>

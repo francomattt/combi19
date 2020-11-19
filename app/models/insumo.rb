@@ -1,0 +1,5 @@
+class Insumo < ApplicationRecord
+
+
+
+end
