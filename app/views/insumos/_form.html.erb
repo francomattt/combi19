@@ -1,0 +1,36 @@
+<%= form_with(model: insumo, local: true) do |form| %>
+  <% if insumo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(insumo.errors.count, "error") %> No se pudo guardar el insumo:</h2>
+
+      <ul>
+        <% insumo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :tipo, 'Tipo: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :tipo, required: true %>
+  </div>
+ </div>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :cant, 'Cantidad: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :cant, required: true %>
+  </div>
+ </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
