@@ -12,4 +12,12 @@ class User < ApplicationRecord
      "#{last_name} | #{name}"
   end
 
+  validates :birth_date, presence: true
+  validate :validate_age
+  private
+  def validate_age
+     if birth_date.present? && birth_date.to_date > 18.years.ago.to_date
+      errors.add(:birth_date, 'Usted debe ser mayor de edad.') 
+    end
+  end
 end

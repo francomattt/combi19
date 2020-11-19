@@ -1,8 +1,7 @@
 <div class="jumbotron">
   <h1>Combi 19</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">Página de inicio</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   
   <% if user_signed_in? %>
     <% if current_user.admin? %>
@@ -12,8 +11,17 @@
       <%= link_to "Sitios",sites_path, class: 'btn btn-primary' %>
       <p>Ir a Viajes:</p>
       <%= link_to "Viajes",travels_path, class: 'btn btn-primary' %>
-    <% end %>  
+    <%else%>
+      <% if current_user.driver? %>
+        <p>Página de inicio del chofer</p>
+      <%else%>
+        <% if current_user.passenger? %>
+          <p>Página de inicio del pasajero</p>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
+
 
 
 </div>

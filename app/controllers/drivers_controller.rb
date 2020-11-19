@@ -1,50 +1,43 @@
 class DriversController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
     def index
-      @users = User.all
+        @drivers= User.where(role: "driver")
     end
-  
     def show
+
     end
-  
-    def new
-      @user = User.new
-    end
-  
     def edit
+     @driver= User.find(params[:id])
     end
-  
+
+    def new
+        @driver= User.new
+    end
     def create
-      @user = User.new(user_params)
-      @user.role = :driver
-      
-      if @user.save
-        redirect_to driver_path(@user), notice: 'El chofer se cargó correctamente.'
-      else
-        render :new
-      end
+    @driver= User.new(driver_params)
+    @driver.role= "driver"
+    if @driver.save!
+        redirect_to drivers_path, notice: "Registro exitoso"
+    else
+        redirect_to drivers_path, notice: "No se pudo registrar"
     end
-  
+    end
     def update
-      respond_to do |format|
-        if @user.update(user_params)
-          format.html { redirect_to @user, notice: 'El chofer se actualizó correctamente.' }
-        else
-          format.html { render :edit }
+        @driver = User.find(params[:id])
+        if @driver.update(driver_params)
+            redirect_to driver_path
+        else 
+            render :edit
         end
-      end
     end
-  
+    def destroy
+        @driver= User.find(params[:id])
+        @driver.destroy
+        redirect_to driver_path
+
+    end
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_user
-        @user = User.find(params[:id])
-      end
-  
-      # Only allow a list of trusted parameters through.
-      def user_params
-        params.require(:user).permit(:name, :last_name, :email, :birth_date, :dni, :password, :password_confirmation)
-      end
-  end
-  
+    def driver_params
+        params.require(:user).permit([:name,:last_name,:birth_date,:dni,:email,:password,:password_confirmation,:role])
+    end
+end
