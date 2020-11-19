@@ -11,17 +11,24 @@
     </div>
   <% end %>
   
-
-
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo %>
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :tipo, 'Tipo: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :tipo, required: true %>
   </div>
-
-  <div class="field">
-    <%= form.label :cant %>
-    <%= form.number_field :cant %>
+ </div>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :cant, 'Cantidad: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.text_field :cant, required: true %>
   </div>
+ </div>
+
 
   <div class="actions">
     <%= form.submit %>
