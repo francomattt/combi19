@@ -5,10 +5,14 @@
   
   <% if user_signed_in? %>
     <% if current_user.admin? %>
-      <p>Ir a Combis:</p>
-      <%= link_to "Combis",combis_path, class: 'btn btn-primary' %>
       <p>Ir a Sitios:</p>
       <%= link_to "Sitios",sites_path, class: 'btn btn-primary' %>
+      <p>Ir a Choferes:</p>
+      <%= link_to "Choferes",drivers_path, class: 'btn btn-primary' %>
+      <p>Ir a Rutas:</p>
+      <%= link_to "Rutas",ways_path, class: 'btn btn-primary' %>
+      <p>Ir a Combis:</p>
+      <%= link_to "Combis",combis_path, class: 'btn btn-primary' %>
       <p>Ir a Viajes:</p>
       <%= link_to "Viajes",travels_path, class: 'btn btn-primary' %>
     <%else%>
@@ -17,6 +21,8 @@
       <%else%>
         <% if current_user.passenger? %>
           <p>Página de inicio del pasajero</p>
+          <p>Ver viajes disponibles:</p>
+          <%= link_to "Viajes",travels_path, class: 'btn btn-primary' %>
         <% end %>
       <% end %>
     <% end %>

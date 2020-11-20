@@ -19,18 +19,24 @@
       <tr>
         <td><%= insumo.tipo %></td>
         <td><%= insumo.cant %></td>
-        <td><%= link_to 'Detalles', insumo %></td>
-        <td><%= link_to 'Editar', edit_insumo_path(insumo) %></td>
-        <td><%= link_to 'Eliminar', insumo, method: :delete, data: { confirm: 'Estas seguro ?' } %></td>
+        <% if user_signed_in? %>    
+          <%if current_user.admin?%>
+            <td><%= link_to 'Detalles', insumo %></td>
+            <td><%= link_to 'Editar', edit_insumo_path(insumo) %></td>
+            <td><%= link_to 'Eliminar', insumo, method: :delete, data: { confirm: 'Estas seguro ?' } %></td>
+          <%end%>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Registrar nuevo insumo', new_insumo_path, class: 'btn btn-light btn-sm' %>
-
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+    <%= link_to 'Registrar nuevo insumo', new_insumo_path, class: 'btn btn-light btn-sm' %>
+  <%end%>
+<%end%>
 
 </div>
 </div>

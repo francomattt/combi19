@@ -1,10 +1,13 @@
-<div class="container-fluid">
-	<h3>Editar ruta</h3>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+		<div class="container-fluid">
+			<h3>Editar ruta</h3>
 
-	<%= render 'form', way: @way %>
-	<div class="container">
-	   <br>
-	</div>
-	<%= link_to 'Ver ruta', @way, class: 'btn btn-primary btn-sm' %> | <%= link_to 'Volver', ways_path,class: 'btn btn-default btn-sm' %>
-</div>
-
+			<%= render 'form', way: @way %>
+			<div class="container">
+			<br>
+			</div>
+			<%= link_to 'Ver ruta', @way, class: 'btn btn-primary btn-sm' %> | <%= link_to 'Volver', ways_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>

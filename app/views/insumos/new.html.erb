@@ -1,7 +1,11 @@
-<div class="container-fluid">
-	<h3>Cargar nuevo insumo</h3>
+<% if user_signed_in? %>    
+  	<%if current_user.admin?%>		
+		<div class="container-fluid">
+			<h3>Cargar nuevo insumo</h3>
 
-	<%= render 'form', insumo: @insumo %>
+			<%= render 'form', insumo: @insumo %>
 
-	<%= link_to 'Volver', insumos_path,class: 'btn btn-default btn-sm' %>
-</div>
+			<%= link_to 'Volver', insumos_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>

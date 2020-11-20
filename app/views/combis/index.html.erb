@@ -1,41 +1,45 @@
-<div class="container-fluid">
-<h3>Combis disponibles </h3>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+    <div class="container-fluid">
+    <h3>Combis disponibles </h3>
 
-<div class="container-fluid">
-<table class="table">
-  <thead class="thead-dark">
-    <tr align="center">
-      <th>Patente</th>
-      <th>Cantidad de asientos</th>
-      <th>Tipo</th>
-      <th>Modelo</th>
-      <th>Chofer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="container-fluid">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr align="center">
+          <th>Patente</th>
+          <th>Cantidad de asientos</th>
+          <th>Tipo</th>
+          <th>Modelo</th>
+          <th>Chofer</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @combis.each do |combi| %>
-	
-       <tr align="center">
-        <td><%= combi.registration_plate %></td>
-        <td><%= combi.cap %></td>
-        
-        <td><%= combi.bus_type %></td>
-        <td><%= combi.model %></td>
-        <td><%= combi.user.formatted_name%></td>
-        <td><%= link_to 'Detalles', combi , class: 'btn btn-light btn-sm'%></td>
-        <td><%= link_to 'Editar', edit_combi_path(combi), class: 'btn btn-light btn-sm' %></td>
-        <td><%= link_to 'Eliminar',destroy_combi_path(combi), data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @combis.each do |combi| %>
+      
+          <tr align="center">
+            <td><%= combi.registration_plate %></td>
+            <td><%= combi.cap %></td>
+            
+            <td><%= combi.bus_type %></td>
+            <td><%= combi.model %></td>
+            <td><%= combi.user.formatted_name%></td>
+            <td><%= link_to 'Detalles', combi , class: 'btn btn-light btn-sm'%></td>
+            <td><%= link_to 'Editar', edit_combi_path(combi), class: 'btn btn-light btn-sm' %></td>
+            <td><%= link_to 'Eliminar',destroy_combi_path(combi), data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'Registrar nueva combi', new_combi_path, class: 'btn btn-light btn-sm' %>
+    <%= link_to 'Registrar nueva combi', new_combi_path, class: 'btn btn-light btn-sm' %>
 
 
-</div>
-</div>
+    </div>
+    </div>
+  <%end%>
+<%end%>

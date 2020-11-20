@@ -1,6 +1,10 @@
-<h1>Editing Travel</h1>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+        <h1>Editing Travel</h1>
 
-<%= render 'form', travel: @travel %>
+        <%= render 'form', travel: @travel %>
 
-<%= link_to 'Show', @travel %> |
-<%= link_to 'Back', travels_path %>
+        <%= link_to 'Show', @travel %> |
+        <%= link_to 'Back', travels_path %>
+    <%end%>
+<%end%>

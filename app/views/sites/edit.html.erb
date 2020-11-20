@@ -1,13 +1,16 @@
-<div class="container-fluid">
-	<h3> Editar destino</h3>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+		<div class="container-fluid">
+			<h3> Editar destino</h3>
 
-	<%= render 'form', site: @site %>
-	<div class="container">
-	   <br>
-	</div>
-	<%= link_to 'Ver destino', @site, class: 'btn btn-primary btn-sm' %> | <%= link_to 'Volver', sites_path,class: 'btn btn-default btn-sm' %>
-</div>
-
+			<%= render 'form', site: @site %>
+			<div class="container">
+			<br>
+			</div>
+			<%= link_to 'Ver destino', @site, class: 'btn btn-primary btn-sm' %> | <%= link_to 'Volver', sites_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>
 
 
 

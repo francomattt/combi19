@@ -1,8 +1,11 @@
-<div class="container-fluid">
-	<h3>Cargar nuevo destino</h3>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+		<div class="container-fluid">
+			<h3>Cargar nuevo destino</h3>
 
-	<%= render 'form', way: @way %>
+			<%= render 'form', way: @way %>
 
-	<%= link_to 'Volver', ways_path,class: 'btn btn-default btn-sm' %>
-</div>
-
+			<%= link_to 'Volver', ways_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>

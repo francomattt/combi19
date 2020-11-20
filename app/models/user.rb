@@ -11,7 +11,8 @@ class User < ApplicationRecord
   def formatted_name
      "#{last_name} | #{name}"
   end
-
+  validates :dni, presence: true
+  validates :dni, uniqueness: true
   validates :birth_date, presence: true
   validate :validate_age
   private

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_210125) do
+ActiveRecord::Schema.define(version: 2020_11_20_033604) do
 
   create_table "combis", force: :cascade do |t|
     t.string "registration_plate"
     t.integer "cap"
     t.integer "model"
-    t.string "bus_type"
+    t.integer "bus_type"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2020_11_17_210125) do
     t.date "expiration_date"
     t.integer "security_number"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "insumos", force: :cascade do |t|
+    t.string "tipo"
+    t.integer "cant"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

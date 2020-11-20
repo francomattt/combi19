@@ -1,7 +1,11 @@
-<p>
-  <strong>Name:</strong>
-  <%= @site.name %>
-</p>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>    
+    <p>
+      <strong>Name:</strong>
+      <%= @site.name %>
+    </p>
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+    <%= link_to 'Edit', edit_site_path(@site) %> |
+    <%= link_to 'Back', sites_path %>
+  <%end%>
+<%end%>

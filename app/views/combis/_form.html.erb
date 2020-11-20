@@ -14,7 +14,7 @@
 
  <div class="row">
    <div class="col-3">
-     <%= form.label :registration_plate, 'Dominio: *' %>
+     <%= form.label :registration_plate, 'Patente: *' %>
    </div>
    <div class="col-3">
     <%= form.text_field :registration_plate, required: true %>
@@ -38,6 +38,15 @@
     <%= form.number_field :model, required: true %>
   </div>
  </div>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :bus_type, 'Tipo: *' %>
+   </div>
+   <div class="col-3">
+      <%= form.select(:bus_type, [['Cómoda', 'cómoda'], ['Super_cómoda', 'super_cómoda']]) %>
+    </div>
+  </div>
 
 
 <div class="row">

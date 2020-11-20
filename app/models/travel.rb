@@ -6,6 +6,4 @@ belongs_to :combi
 	validates :travel_hour, presence: true
 	validates :travel_day, presence: true
 
-	
-
 end

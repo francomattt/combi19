@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>    
+  <%if current_user.admin?%>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @way.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @way.description %>
+    </p>
 
-<p>
-  <strong>Start:</strong>
-  <%= Site.find(@way.start).name %>
-</p>
+    <p>
+      <strong>Start:</strong>
+      <%= Site.find(@way.start).name %>
+    </p>
 
-<p>
-  <strong>End:</strong>
-  <%= Site.find(@way.end_way).name %>
-</p>
+    <p>
+      <strong>End:</strong>
+      <%= Site.find(@way.end_way).name %>
+    </p>
 
-<p>
-  <strong>Deleted at:</strong>
-  <%= @way.deleted_at %>
-</p>
+    <p>
+      <strong>Deleted at:</strong>
+      <%= @way.deleted_at %>
+    </p>
 
-<%= link_to 'Edit', edit_way_path(@way) %> |
-<%= link_to 'Back', ways_path %>
+    <%= link_to 'Edit', edit_way_path(@way) %> |
+    <%= link_to 'Back', ways_path %>
+  <%end%>
+<%end%>
