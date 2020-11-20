@@ -10,4 +10,8 @@ validate :no_ciclico
 def no_ciclico
   errors.add(:start, "El origen debe ser distinto del final de la ruta") if start == end_way
 end
+
+  def formatted_name
+     "#{description}"
+  end
 end
