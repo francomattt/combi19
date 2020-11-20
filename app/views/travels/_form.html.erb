@@ -11,31 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :travel_day %>
-    <%= form.date_select :travel_day %>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :travel_day, 'Día de viaje: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.date_field :travel_day, required: true %>
   </div>
-
-  <div class="field">
-    <%= form.label :travel_hour %>
-    <%= form.time_select :travel_hour %>
+ </div>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :travel_hour, 'Hora: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.time_field :travel_hour, required: true %>
   </div>
-
-  <div class="field">
-    <%= form.label :combi_id %>
-    <%= form.number_field :combi_id %>
+ </div>
+ 
+  <div class="row">
+   <div class="col-3">
+     <%= form.label :combi_id, 'Id de la combi: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.collection_select :combi_id, Combi.availables, :id, :registration_plate,{},class: 'form-control' %>
   </div>
+ </div>
 
-  <div class="field">
-    <%= form.label :way_id %>
-    <%= form.number_field :way_id %>
+<div class="row">
+   <div class="col-3">
+     <%= form.label :way_id, 'ruta: *' %>
+   </div>
+   <div class="col-3">
+
+    <%= form.collection_select :way_id, Way.availables, :id, :formatted_name,{},class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :state_id %>
-    <%= form.number_field :state_id %>
-  </div>
-
+ </div>
+ 
   <div class="actions">
     <%= form.submit %>
   </div>
