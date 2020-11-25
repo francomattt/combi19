@@ -50,7 +50,9 @@ class CombisController < ApplicationController
 
   def destroy
     @combi.deleted_at=Date.today
+    @combi.user_id=1
     @combi.save
+   
     respond_to do |format|
       format.html { redirect_to combis_url, notice: 'La combi fue eliminada con éxito.' }
 

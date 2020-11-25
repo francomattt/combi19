@@ -22,7 +22,7 @@ class WaysController < ApplicationController
       if @way.save
         format.html { redirect_to ways_path, notice: 'La ruta se cargó correctamente.' }
       else
-        format.html { render :new }
+        format.html { render :new,  alert: 'ha ocurrido un error.' }
        end
     end
   end

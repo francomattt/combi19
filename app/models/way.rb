@@ -2,7 +2,7 @@ class Way < ApplicationRecord
 	validates :description, presence: true
 	validates :start, presence: true
 	validates :end_way, presence: true
-
+	validates :start, uniqueness: { scope: [:start, :end_way, :description] }
 	scope :availables, -> { where(deleted_at: nil) }
 	
 validate :no_ciclico
