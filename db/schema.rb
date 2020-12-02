@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_033604) do
+ActiveRecord::Schema.define(version: 2020_12_02_170718) do
 
   create_table "combis", force: :cascade do |t|
     t.string "registration_plate"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_033604) do
     t.date "deleted_at"
     t.integer "role", default: 0
     t.integer "credit_card_id"
+    t.integer "phone_number"
     t.index ["dni"], name: "index_users_on_dni", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
