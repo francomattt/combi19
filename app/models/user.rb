@@ -16,7 +16,6 @@ class User < ApplicationRecord
   end
   validates :dni, presence: true
   validates :dni, uniqueness: true
-  validates :birth_date, presence: true
   validate :validate_age
   private
   def validate_age
