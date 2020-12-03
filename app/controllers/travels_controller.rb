@@ -4,7 +4,11 @@ class TravelsController < ApplicationController
   # GET /travels
   # GET /travels.json
   def index
-    @travels = Travel.all
+
+    #@travels = Travel.all
+   
+    @travels = Travel.search(params[:search])
+
   end
 
   # GET /travels/1
@@ -69,6 +73,6 @@ def create
 
     # Only allow a list of trusted parameters through.
     def travel_params
-      params.require(:travel).permit(:travel_day, :travel_hour, :combi_id, :way_id, :state_id)
+      params.require(:travel).permit(:travel_day, :travel_hour, :combi_id, :way_id, :state_id, :price, :search)
     end
 end

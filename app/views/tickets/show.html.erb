@@ -1,0 +1,18 @@
+<% if user_signed_in? %>    
+  <%if current_user.passenger?%>
+    <p id="notice"><%= notice %></p>
+
+   
+
+   
+
+    <p>
+      <strong>User:</strong>
+                <td><%= ticket.user_id%></td>
+    </p>
+
+    
+    <%= link_to 'Edit', edit_ticket_path(@way) %> |
+    <%= link_to 'Back', tickets_path %>
+  <%end%>
+<%end%>

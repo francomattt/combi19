@@ -1,0 +1,33 @@
+<div class="container-fluid">
+<h3>Pasajes adquiridos </h3>
+
+<div class="container-fluid">
+<table class="table">
+  <thead class="thead-dark">
+    <tr align="center">
+      <th>Viaje</th>
+      <th>Estado</th>
+      <th>Precio (ars)</th>      
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+	
+       <tr align="center">
+        <td><%= Travel.find(ticket.travel_id).selled_name %></td>
+        <td><%= State.first.name %></td> <!--ARREGLAR -->
+        <td><%= ticket.price %></td>        
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+
+</div>
+</div>

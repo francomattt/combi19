@@ -1,0 +1,12 @@
+
+<% if user_signed_in? %>    
+  <%if current_user.passenger?%>
+		<div class="container-fluid">
+			<h3>Cargar nueva tarjeta</h3>
+
+			<%= render 'form', credit_card2: @credit_card2 %>
+
+			<%= link_to 'Volver', credit_card2s_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>

@@ -21,8 +21,14 @@
       <%else%>
         <% if current_user.passenger? %>
           <p>Página de inicio del pasajero</p>
-          <p>Ver viajes disponibles:</p>
-          <%= link_to "Viajes",travels_path, class: 'btn btn-primary' %>
+          <p>Ver pasajes comprados:</p>
+          <%= link_to "Mis pasajes",tickets_path, class: 'btn btn-primary' %> <!--esto va en el perfil del usuario -->
+          
+          <p>Buscar viajes disponibles:</p>
+          <%= link_to "Buscar viajes", search_travels_path, class: 'btn btn-primary' %>
+         
+          <p>Ver tarjetas</p>
+          <%= link_to "Tarjetas",credit_card2s_path, class: 'btn btn-primary' %>
         <% end %>
       <% end %>
     <% end %>

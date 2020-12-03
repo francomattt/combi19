@@ -1,0 +1,11 @@
+<% if user_signed_in? %>    
+  <%if current_user.passenger?%>
+		<div class="container-fluid">
+			<h3>Cargar pasaje</h3>
+
+			<%= render 'form', ticket: @ticket %>
+
+			<%= link_to 'Volver del new', tickets_path,class: 'btn btn-default btn-sm' %>
+		</div>
+	<%end%>
+<%end%>

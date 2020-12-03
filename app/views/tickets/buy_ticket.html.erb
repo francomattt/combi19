@@ -1,0 +1,13 @@
+<% if user_signed_in? %>    
+  <%if current_user.passenger?%>
+    <div class="container-fluid">
+      <h3>Comprar pasaje</h3>
+
+      <%= render 'get', ticket: @ticket %>
+      
+      <%= link_to 'Volver de buyticket', tickets_path,class: 'btn btn-default btn-sm' %>
+
+
+    </div>
+  <%end%>
+<%end%>

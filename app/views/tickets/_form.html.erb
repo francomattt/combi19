@@ -1,0 +1,26 @@
+<%= form_with(model: ticket, local: true) do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> No se pudo realizar la compra del pasaje:</h2>
+
+   
+    </div>
+  <% end %>
+
+ 
+ 
+ <div class="row">
+   <div class="col-6">
+     <%=  "Pasaje para el viaje #{Travel.find(params[:travel_id].to_i).formatted_name}" %>
+   </div>
+   
+ </div>
+ 
+
+
+    <%= link_to 'Cargar viaje', create_new_ticket_path(@ticket.travel_id), class: 'btn btn-primary btn-sm' %>
+
+<% end %>
+
+
+

@@ -1,0 +1,23 @@
+<%= form_with(model: ticket, local: true) do |get| %>
+
+
+
+ 
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= get.label :travel_id, 'Viaje: *' %>
+   </div>
+   <div class="col-3">
+    <%= get.collection_select :travel_id, Travel.availables, :id, :formatted_name,{},class: 'form-control' %>
+  </div>
+ </div>
+ 
+
+ 
+  <div class="actions">
+    <%= get.submit "comprar de _get"%>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,17 @@
+   
+      <%if current_user.passenger?%>
+       
+      
+
+    
+    <h1>Buscador de pasajes</h1>
+    
+    <%= form_tag travels_path(@tickets), :method => "get" do %>
+    	<%= label_tag(:search, "ciudad destino") %>
+    	<%= text_field_tag :search, params[:search] %>
+    	<%= submit_tag("Search", :name => nil) %>
+
+    <% end%>
+    <% end %>
+    
+

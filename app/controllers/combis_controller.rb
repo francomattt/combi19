@@ -50,12 +50,19 @@ class CombisController < ApplicationController
 
   def destroy
     @combi.deleted_at=Date.today
-    @combi.user_id=1
-    @combi.save
+    @combi.user_id=nil
+    if @combi.update(:user_id => nil)
+    
+    
    
     respond_to do |format|
       format.html { redirect_to combis_url, notice: 'La combi fue eliminada con éxito.' }
-
+	
+	end
+	else
+	    respond_to do |format|
+	format.html { redirect_to combis_url, notice: 'No se pudo eliminar la combi.' }
+	end
     end
   end
 

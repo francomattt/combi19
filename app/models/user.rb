@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum role: [ :passenger, :driver, :admin ]
   scope :availables, -> { where(deleted_at: nil) }
   #has_one:combi
-           
+   has_many:ticket        
 
   
   scope :choferes, -> { where(role: 'driver') }

@@ -64,6 +64,6 @@ class InsumosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def insumo_params
-      params.require(:insumo).permit(:tipo, :cant)
+      params.require(:insumo).permit(:tipo, :cant, :price)
     end
 end

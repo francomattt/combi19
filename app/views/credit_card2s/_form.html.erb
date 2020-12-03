@@ -1,0 +1,56 @@
+<%= form_with(model: credit_card2, local: true) do |form| %>
+  <% if credit_card2.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(credit_card2.errors.count, "error") %> prohibited this credit_card2 from being saved:</h2>
+
+      <ul>
+        <% credit_card2.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+ 
+  
+  <div class="row">
+      <div class="col-3">
+        <%= form.label :name, 'Nombre y apellido completos: *' %>
+      </div>
+      <div class="col-3">
+        <%= form.text_field :name, required: true %>
+      </div>
+  </div>
+  
+
+ 
+ 
+  
+ 
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :number, 'Numero de tarjeta: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.number_field :number, required: true %>
+  </div>
+ </div>
+
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :cvc, 'Codigo de seguridad: *' %>
+   </div>
+   <div class="col-3">
+    <%= form.number_field :cvc, required: true %>
+  </div>
+ </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

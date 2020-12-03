@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_170718) do
+ActiveRecord::Schema.define(version: 2020_12_03_042558) do
 
   create_table "combis", force: :cascade do |t|
     t.string "registration_plate"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2020_12_02_170718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "deleted_at"
+  end
+
+  create_table "credit_card2s", force: :cascade do |t|
+    t.string "name"
+    t.integer "last_name"
+    t.integer "number"
+    t.integer "cvc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -38,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_170718) do
     t.integer "cant"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "price"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -54,6 +65,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_170718) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "deleted_at"
+    t.float "price"
+    t.integer "user_id"
+    t.integer "travel_id"
+  end
+
   create_table "travels", force: :cascade do |t|
     t.date "travel_day"
     t.time "travel_hour"
@@ -64,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_170718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "hora"
+    t.float "price"
   end
 
   create_table "users", force: :cascade do |t|
