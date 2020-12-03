@@ -1,19 +1,39 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editar usuario</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+        <%= f.label :name, "Nombre" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Apellido" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
 
   <div class="field">
     <%= f.label :email, "Correo electrónico" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :birth_day, "Fecha de nacimiento *" %><br />
+    <%= f.date_field :birth_date, autofocus: true, autocomplete: "birth_date", required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dni, "Dni *" %><br />
+    <%= f.number_field :dni, autofocus: true, autocomplete: "dni", required: true %>
+  </div>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password, "Contraseña" %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "Contraseña" %> <i>(Deje en blanco si no desea modificar su contraseña)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -22,7 +42,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirmar contraseña" %><br />
+    <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
