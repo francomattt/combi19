@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_214253) do
+ActiveRecord::Schema.define(version: 2020_12_04_052405) do
 
   create_table "combis", force: :cascade do |t|
     t.string "registration_plate"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_214253) do
 
   create_table "credit_card2s", force: :cascade do |t|
     t.string "name"
-    t.integer "last_name"
+    t.string "last_name"
     t.integer "number"
     t.integer "cvc"
     t.datetime "created_at", precision: 6, null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_214253) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "price"
+    t.date "deleted_at"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_214253) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cant"
   end
 
   create_table "sites", force: :cascade do |t|

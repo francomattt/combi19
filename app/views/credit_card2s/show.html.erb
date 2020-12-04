@@ -9,16 +9,21 @@
   <strong>Last name:</strong>
   <%= @credit_card2.last_name %>
 </p>
-
+<% if current_user.role != 'admin' %>
+<p>
+  <strong>Number:</strong>
+  <%= @credit_card2.mask(@credit_card2.number) %>
+</p>
+<% else %>
 <p>
   <strong>Number:</strong>
   <%= @credit_card2.number %>
 </p>
-
 <p>
   <strong>Cvc:</strong>
   <%= @credit_card2.cvc %>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_credit_card2_path(@credit_card2) %> |
 <%= link_to 'Back', credit_card2s_path %>

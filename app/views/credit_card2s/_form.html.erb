@@ -18,14 +18,21 @@
   
   <div class="row">
       <div class="col-3">
-        <%= form.label :name, 'Nombre y apellido completos: *' %>
+        <%= form.label :name, 'Nombre: *' %>
       </div>
       <div class="col-3">
         <%= form.text_field :name, required: true %>
       </div>
   </div>
   
-
+<div class="row">
+      <div class="col-3">
+        <%= form.label :last_name, 'Apellido: *' %>
+      </div>
+      <div class="col-3">
+        <%= form.text_field :last_name, required: true %>
+      </div>
+  </div>
  
  
   

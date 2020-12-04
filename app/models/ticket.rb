@@ -3,7 +3,7 @@ class Ticket < ApplicationRecord
 	validates :price, presence: true
 	validates :travel_id, presence: true
 	validates :user_id, presence: true
-	
+	has_many :lists
 
 
 end
