@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lists
   resources :credit_card2s
   resources :insumos
   resources :states
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :sites
   resources :ways
   resources :drivers
-resources :tickets, skip: [:new, :create, :show]
+resources :tickets, skip: [:new, :create, :show] do resources :list end
   devise_for :users
  # resources :tickets do
   #  collection do

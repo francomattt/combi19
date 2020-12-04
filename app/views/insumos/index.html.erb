@@ -9,6 +9,7 @@
     <tr align="center">
       <th>Tipo</th>
       <th>Cantidad</th>
+      <th>Precio</th>
       
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,7 @@
       <tr>
         <td><%= insumo.tipo %></td>
         <td><%= insumo.cant %></td>
+        <td><%= insumo.price %></td>
         <% if user_signed_in? %>    
           <%if current_user.admin?%>
             <td><%= link_to 'Detalles', insumo %></td>

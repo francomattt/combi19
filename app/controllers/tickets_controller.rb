@@ -48,6 +48,7 @@ end
   def new
     @ticket = Ticket.new
     @ticket.travel_id=params[:travel_id].to_i
+
   end
   
   def show
@@ -81,6 +82,16 @@ def create
     end
   end
    # Only allow a list of trusted parameters through.
+   def destroy
+   	List.where(ticket_id: params[:id] ).destroy_all
+   	@ticket = Ticket.find(params[:id])
+   	if @ticket.destroy
+   	 redirect_to tickets_path, notice: 'El pasaje fue eliminado exitosamente.' 
+
+       else
+        redirect_to tickets_path, notice: 'No se pudo eliminar el pasaje.' 
+       end
+   end
     def ticket_params
       params.permit( :travel_id)
     end

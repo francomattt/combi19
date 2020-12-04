@@ -23,7 +23,7 @@
         <td><%= travel.travel_hour.strftime('%m:%H') %></td>
         <td><%= travel.combi_id %></td>
         <td><%= travel.way_id %></td>
-        <td><%= travel.state_id %></td>
+        <td><%= State.find(travel.state_id).name %></td>
         <td><%= travel.price %></td>
         <% if user_signed_in? %>
           <% if current_user.admin? %>

@@ -3,7 +3,7 @@ class DriversController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @drivers= User.where(role: "driver")
+        @drivers= User.where(role: "driver").availables
     end
 
     def show
@@ -36,12 +36,13 @@ class DriversController < ApplicationController
     end
     def destroy
         @driver= User.find(params[:id])
-        @driver.destroy
+        @driver.deleted_at= Date.new
+        @driver.save
         redirect_to drivers_path
 
     end
     private
     def driver_params
-        params.require(:user).permit([:name,:last_name,:birth_date,:dni,:email,:password,:password_confirmation,:role])
+        params.require(:user).permit([:name,:last_name,:birth_date,:dni,:email,:password,:password_confirmation,:role, :phone_number])
     end
 end

@@ -25,7 +25,14 @@
             
             <td><%= combi.bus_type %></td>
             <td><%= combi.model %></td>
-            <td><%= combi.user_formatted_name%></td>
+            <% if User.find(combi.user_id).deleted_at != nil %>    
+
+            	<td><text style="color:red"><%= combi.user_formatted_name%></text></td>
+            	
+            <% else%>    	
+            	 	<td><%= combi.user_formatted_name%></td>
+            	            	
+             <%end%> 
             <td><%= link_to 'Detalles', combi , class: 'btn btn-light btn-sm'%></td>
             <td><%= link_to 'Editar', edit_combi_path(combi), class: 'btn btn-light btn-sm' %></td>
             <td><%= link_to 'Eliminar',destroy_combi_path(combi), data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %></td>

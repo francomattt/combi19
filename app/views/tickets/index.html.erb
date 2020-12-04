@@ -8,7 +8,7 @@
       <th>Viaje</th>
       <th>Estado</th>
       <th>Precio (ars)</th>      
-      <th colspan="4"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -17,8 +17,10 @@
 	
        <tr align="center">
         <td><%= Travel.find(ticket.travel_id).selled_name %></td>
-        <td><%= State.first.name %></td> <!--ARREGLAR -->
+        <td><%= State.find(Travel.find(ticket.travel_id).state_id).name %></td> <!--ARREGLAR -->
         <td><%= ticket.price %></td>        
+        <td><%= link_to 'Agregar insumos al viaje', '#', class: 'btn btn-light btn-sm' %></td>
+        <td><%= link_to 'Cancelar Pasaje',ticket,method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
 
     <% end %>

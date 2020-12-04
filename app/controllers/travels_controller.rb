@@ -58,6 +58,7 @@ def create
 
 
   def destroy
+    Travel.where(id: @ticket.travel_id).destroy_all
     @travel.destroy
     respond_to do |format|
       format.html { redirect_to travels_url, notice: 'Travel was successfully destroyed.' }

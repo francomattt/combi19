@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_042558) do
+ActiveRecord::Schema.define(version: 2020_12_03_214253) do
 
   create_table "combis", force: :cascade do |t|
     t.string "registration_plate"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2020_12_03_042558) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "price"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.integer "ticket_id"
+    t.integer "insumo_id"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sites", force: :cascade do |t|

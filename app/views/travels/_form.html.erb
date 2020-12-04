@@ -47,6 +47,15 @@
     <%= form.collection_select :combi_id, Combi.availables, :id, :registration_plate,{},class: 'form-control' %>
   </div>
  </div>
+ 
+ <div class="row">
+   <div class="col-3">
+     <%= form.label :state_id, 'Estado del viaje *' %>
+   </div>
+   <div class="col-3">
+    <%= form.collection_select :state_id, State.availables, :id, :name,{},class: 'form-control', required: true %>
+  </div>
+ </div>
 
 <div class="row">
    <div class="col-3">
