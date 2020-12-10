@@ -4,18 +4,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-        <%= f.label :name, "Nombre" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.label :name, "Nombre *" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" ,  required: true%>
       </div>
 
   <div class="field">
-    <%= f.label :last_name, "Apellido" %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.label :last_name, "Apellido *" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" ,  required: true%>
   </div>
 
   <div class="field">
-    <%= f.label :email, "Correo electrónico" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, "Correo electrónico *" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  required: true %>
   </div>
 
   <div class="field">
@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= f.label :dni, "Dni *" %><br />
-    <%= f.number_field :dni, autofocus: true, autocomplete: "dni", required: true %>
+    <%= f.number_field :dni, autofocus: true, autocomplete: "dni", required: true,  required: true %>
   </div>
   
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
