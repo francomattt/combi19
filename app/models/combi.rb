@@ -3,7 +3,7 @@ class Combi < ApplicationRecord
 	validates :registration_plate, presence: true, uniqueness: true
 	validates :cap, presence: true
 	validates :model, presence: true
-	validates :user_id, presence: true, uniqueness: true
+	
  	enum bus_type: [ :cómoda, :super_cómoda ]
 	#validates :user, presence: true, uniqueness: true
 	
