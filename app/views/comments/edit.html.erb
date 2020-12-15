@@ -1,0 +1,8 @@
+<h1>Editar comentario</h1>
+
+<%= render 'form', comment: @comment %>
+
+<%= link_to 'Show', ticket_comment_path(@comment.ticket, @comment) %> |
+<%= link_to 'Back', ticket_comments_path(@comment.ticket) %>
+
+

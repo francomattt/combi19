@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @comment.name %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @comment.score %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_comment_path(@comment.ticket, @comment) %> |
+<%= link_to 'Back', ticket_comments_path(@comment.ticket) %>

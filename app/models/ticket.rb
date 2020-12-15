@@ -4,6 +4,7 @@ class Ticket < ApplicationRecord
 	validates :travel_id, presence: true
 	validates :user_id, presence: true
 	has_many :lists
+	has_many :comments , dependent: :destroy
 
 
 end

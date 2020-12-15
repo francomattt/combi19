@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :sites
   resources :ways
   resources :drivers
-resources :tickets, skip: [:new, :create, :show] do resources :lists end
+  resources :tickets, skip: [:new, :create, :show] do
+    resources :lists
+    resources :comments
+  end
   devise_for :users
  # resources :tickets do
   #  collection do
