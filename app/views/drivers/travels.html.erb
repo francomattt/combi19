@@ -1,0 +1,39 @@
+<div class="container-fluid">
+<h3>Mis proximos viajes </h3>
+
+<div class="container-fluid">
+<table class="table">
+  <thead class="thead-dark">
+    <tr align="center">
+      <th>Dia</th>
+      <th>Horario</th>
+      <th>Combi</th>
+      <th>Camino</th>
+      <th>Estado</th>     
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @travels.each do |travel| %>
+	<%if travel.travel_day > Date.today %>
+       <tr align="center">
+        <td><%= travel.travel_day.strftime('%d-%m-%Y') %></td>
+        <td><%= travel.travel_hour.strftime('%m:%H') %></td>
+        <td><%= travel.combi_id %></td>
+        <td><%= travel.way_id %></td>
+        <td><%= State.find(travel.state_id).name %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Cambiar estado', change_state_path(travel.id),class: 'btn btn-default btn-sm' %> </td> 
+        <%end%>
+              
+        
+      </tr>
+      <%end%>
+    <% end %>
+  </tbody>
+  
+</table>
+
+</div>
+</div>

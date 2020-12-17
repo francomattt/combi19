@@ -20,6 +20,10 @@
     <%else%>
       <% if current_user.driver? %>
         <p>Página de inicio del chofer</p>
+         <p>Ver mis viajes:</p>
+        <%= link_to "Mis viajes",driver_travels_path(current_user), class: 'btn btn-primary' %>
+
+
       <%else%>
         <% if current_user.passenger? %>
           <p>Página de inicio del pasajero</p>

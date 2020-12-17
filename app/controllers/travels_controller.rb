@@ -1,5 +1,5 @@
 class TravelsController < ApplicationController
-  before_action :set_travel, only: [:show, :edit, :update, :destroy]
+  before_action :set_travel, only: [:show, :edit, :update, :destroy, :change_state]
 
   # GET /travels
   # GET /travels.json
@@ -15,7 +15,7 @@ class TravelsController < ApplicationController
   # GET /travels/1.json
   def show
   end
-
+  
   # GET /travels/new
   def new
     @travel = Travel.new
@@ -66,6 +66,16 @@ def create
     end
   end
 
+  def change_state
+    if (@travel.state_id == 3)
+      @travel.state_id = 1
+    else
+      if (@travel.state_id == 1)
+        @travel.state_id = 2
+    end
+    redirect_to driver_travels_path(current_user) 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_travel
@@ -76,4 +86,7 @@ def create
     def travel_params
       params.require(:travel).permit(:travel_day, :travel_hour, :combi_id, :way_id, :state_id, :price, :search)
     end
+
+     
+  end
 end

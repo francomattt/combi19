@@ -39,4 +39,7 @@ Rails.application.routes.draw do
   get 'tickets/post/:travel_id', to: 'tickets#create', as: 'create_new_ticket'
   
   get 'tickets_search', to: 'tickets#search', as: 'search_travels'
+
+  get 'drivers/:id/travels',  to: 'drivers#travels', as: 'driver_travels'
+  get 'travels/:id/change_state', to: 'travels#change_state', as: 'change_state'
 end

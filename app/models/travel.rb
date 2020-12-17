@@ -25,7 +25,8 @@ belongs_to :combi
 	end
 	
 	scope :availables, -> { where(deleted_at: nil) }
-   		
+	scope :finalizados, -> { where(state_id: 2) }
+	scope :nofinalizados, -> { where("state_id != ?", 2) }
 	
 	def formatted_name
      		"#{travel_day.strftime('%d-%m-%Y')} a las #{travel_hour.strftime('%m:%H')}hs | valor del viaje: $#{price}."

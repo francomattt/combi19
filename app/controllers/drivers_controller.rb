@@ -6,6 +6,11 @@ class DriversController < ApplicationController
         @drivers= User.where(role: "driver").availables
     end
 
+    
+    def travels
+      @travels = Travel.nofinalizados.where(combi: Combi.find_by(user_id:current_user.id))
+    end
+
     def show
       @driver= User.find(params[:id])
     end
