@@ -27,9 +27,10 @@ class TravelsController < ApplicationController
 
   # POST /travels
   # POST /travels.json
-def create
-    @travel = Travel.new(travel_params)
-
+  def create
+    #@travel = Travel.new(travel_params)
+    @travel = Travel.new(params.require(:travel).permit(:travel_day, :travel_hour, :combi_id, :way_id, :state_id, :price, :search))
+   
     respond_to do |format|
       if @travel.save
         format.html { redirect_to @travel, notice: 'Travel was successfully created.' }
@@ -72,7 +73,9 @@ def create
     else
       if (@travel.state_id == 1)
         @travel.state_id = 2
+      end
     end
+    @travel.save
     redirect_to driver_travels_path(current_user) 
   end
 
@@ -88,5 +91,5 @@ def create
     end
 
      
-  end
+  
 end

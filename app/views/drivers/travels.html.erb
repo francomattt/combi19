@@ -16,15 +16,19 @@
 
   <tbody>
     <% @travels.each do |travel| %>
-	<%if travel.travel_day > Date.today %>
+	<%if travel.travel_day > Date.today || (travel.travel_day == Date.today && travel.travel_hour.strftime("%H:%M:%S") > Time.now.strftime("%H:%M:%S"))%>
        <tr align="center">
         <td><%= travel.travel_day.strftime('%d-%m-%Y') %></td>
-        <td><%= travel.travel_hour.strftime('%m:%H') %></td>
+        <td><%= travel.travel_hour.strftime('%H:%M') %></td>
         <td><%= travel.combi_id %></td>
         <td><%= travel.way_id %></td>
         <td><%= State.find(travel.state_id).name %></td>
         <% if user_signed_in? %>
-          <td><%= link_to 'Cambiar estado', change_state_path(travel.id),class: 'btn btn-default btn-sm' %> </td> 
+          <% if (travel.state_id == 3)%>
+            <td><%= link_to 'Iniciar viaje', change_state_path(travel.id),class: 'btn btn-default btn-sm' %> </td> 
+          <%else%>
+            <td><%= link_to 'Finalizar viaje', change_state_path(travel.id),class: 'btn btn-default btn-sm' %> </td> 
+          <<%end%>>
         <%end%>
               
         
