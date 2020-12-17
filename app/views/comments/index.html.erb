@@ -2,6 +2,7 @@
 
 <h1>Comentarios</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -30,3 +31,4 @@
 <% if @comments.count == 0 %>
   <%= link_to 'Nuevo comentario', new_ticket_comment_path(@ticket.id) %>
 <% end %>
+

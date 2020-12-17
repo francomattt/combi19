@@ -28,7 +28,9 @@
         	
         	<td><%= link_to 'Cancelar Pasaje',ticket,method: :delete, data: { confirm: '¿Estás seguro?, si el viaje està dentro de las 48 horas de su realizacion solo se reembolsarà el 50% del valor.'  }, class: 'btn btn-danger btn-sm' %></td>
         <% else  %>
-        	 <td><%= link_to 'Dejar un comentario', ticket_comments_path(ticket.id), class: 'btn btn-light btn-sm' %></
+          <%if State.find(Travel.find(ticket.travel_id).state_id).name =='Finalizado'%>  
+            <td><%= link_to 'Calificar viaje', ticket_comments_path(ticket.id), class: 'btn btn-light btn-sm' %></td>
+          <%end%>
         <% end  %>
       </tr>
 
