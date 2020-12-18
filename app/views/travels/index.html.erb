@@ -18,7 +18,7 @@
   <tbody>
     
     <% @travels.each do |travel| %>
-	<%if travel.travel_day > Date.today || (travel.travel_day == Date.today && travel.travel_hour.strftime("%H:%M:%S") > Time.now.strftime("%H:%M:%S"))%>
+	<%if travel.travel_day > Date.today || (travel.travel_day == Date.today && travel.state_id == 3) %>
        <tr align="center">
         <td><%= travel.travel_day.strftime('%d-%m-%Y') %></td>
         <td><%= travel.travel_hour.strftime('%H:%M') %></td>
